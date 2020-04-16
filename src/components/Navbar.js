@@ -1,4 +1,7 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
+// changing them to links and nav links will stop the page from refreshing
+// NavLink fires a className of Active on click
 
 export default function Navbar() {
   return (
@@ -10,13 +13,13 @@ export default function Navbar() {
           </a>
           <ul className="right">
             <li>
-              <a href="/">Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
