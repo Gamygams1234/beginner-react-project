@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function Contact() {
+export default function Contact(props) {
+  console.log(props);
   return (
     <div className="container">
       <h4 className="center">Contact</h4>
