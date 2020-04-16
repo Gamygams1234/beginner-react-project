@@ -5,6 +5,8 @@ import { Link, NavLink, withRouter } from "react-router-dom";
 
 const Navbar = (props) => {
   console.log(props);
+
+  // so it can redirect to this page
   //   setTimeout(() => {
   //     props.history.push("/about");
   //   }, 2000);
