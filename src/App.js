@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom"; // importing the router
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
-// we set every page up by importing it, now we neet to stop it from loading everytime
+import Post from "./components/Post";
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
+        <Route path="/:post_id" component={Post} />
       </div>
     </BrowserRouter>
   );
