@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Pokeball from "../Images/pokeball.png";
 
 export default class Home extends Component {
   state = {
@@ -15,6 +16,7 @@ export default class Home extends Component {
       });
     });
   }
+  // we are importing the image
   render() {
     const { posts } = this.state; // we grab our posts
     const postList = posts.length ? (
@@ -22,6 +24,7 @@ export default class Home extends Component {
         // then we map the info that we have
         return (
           <div className="post card" key={post.id}>
+            <img src={Pokeball} alt="Pokeball Image" />
             <div className="card-content">
               <Link to={"/" + post.id}>
                 <span className="card-title">{post.title}</span>
