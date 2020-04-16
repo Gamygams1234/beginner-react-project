@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Post from "./components/Post";
-
+// we are setting the path to the id
 function App() {
   return (
     <BrowserRouter>
