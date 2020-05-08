@@ -10,6 +10,7 @@ import rootReducer from "./reducers/rootReducer";
 // we are saying that our rootReducer is connected to the store
 const store = createStore(rootReducer);
 
+// we are now providint the store in the app so we can access the store
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

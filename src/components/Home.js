@@ -1,24 +1,14 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
 import Pokeball from "../Images/pokeball.png";
+import { connect } from "react-redux";
 
-export default class Home extends Component {
-  state = {
-    posts: [],
-  };
-  // here  we are getting our data from our API in component did mount
-  componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
-      console.log(response.data);
-      this.setState({
-        posts: response.data.slice(0, 10), //we are putting it into our state
-      });
-    });
-  }
+class Home extends Component {
   // we are importing the image
   render() {
-    const { posts } = this.state; // we grab our posts
+    console.log(this.props);
+    const { posts } = this.props; // we grab our posts
     const postList = posts.length ? (
       posts.map((post) => {
         // then we map the info that we have
@@ -45,3 +35,10 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
+export default connect(mapStateToProps)(Home);
