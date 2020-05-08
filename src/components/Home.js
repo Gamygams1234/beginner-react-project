@@ -24,7 +24,7 @@ export default class Home extends Component {
         // then we map the info that we have
         return (
           <div className="post card" key={post.id}>
-            <img src={Pokeball} alt="Pokeball Image" />
+            <img src={Pokeball} alt="Pokeball" />
             <div className="card-content">
               <Link to={"/" + post.id}>
                 <span className="card-title">{post.title}</span>
