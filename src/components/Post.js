@@ -1,22 +1,13 @@
 import React, { Component } from "react";
-import axios from "axios"; // we want to import axios
+import { connect } from "react-redux";
 
-export default class Post extends Component {
-  state = { post: null }; // we need the post so we do not need the id at this one
-  componentDidMount() {
-    let id = this.props.match.params.post_id; // here is where we are setting the paramaters to be at the back of the URL
-    axios.get("https://jsonplaceholder.typicode.com/posts/" + id).then((res) => {
-      this.setState({
-        post: res.data,
-      });
-    });
-  }
+class Post extends Component {
   // we are getting all of the content
   render() {
-    const post = this.state.post ? (
+    const post = this.props.post ? (
       <div className="post">
-        <h4 className="center">{this.state.post.title}</h4>
-        <p>{this.state.post.body}</p>
+        <h4 className="center">{this.props.post.title}</h4>
+        <p>{this.props.post.body}</p>
       </div>
     ) : (
       <div className="center">Loading Post...</div>
@@ -24,3 +15,13 @@ export default class Post extends Component {
     return <div className="container">{post}</div>;
   }
 }
+const mapStateToProps = (state, ownProps) => {
+  // this is the id of the slug
+  let id = ownProps.match.params.post_id;
+  return {
+    post: state.posts.find((post) => {
+      return post.id === id;
+    }),
+  };
+};
+export default connect(mapStateToProps)(Post);
